@@ -19,6 +19,6 @@ scrape_configs:
   	- targets: ['localhost:9100']
  	 
 remote_write:
-  - url: "http://influxdb:8086/api/v2/write?org=UTh&bucket=FIWARE"
+  - url: "http://influxdb:8086/api/v2/write?org=<organisation_name>&bucket=<bucket_name>"
 	headers:
-  	Authorization: "Token m5KoXT0yK2lvgltU8mFgybEqHwGmmUhKkZWU2Uf4AFw36bkNS4FXeEPF3mgk5euxRP7nTc_A65DVvDHlf3AMfw=="
+  	Authorization: "Token <*****>"
