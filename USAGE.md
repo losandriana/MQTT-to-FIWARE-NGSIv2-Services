@@ -57,7 +57,7 @@ After running all the services as listed above, you can access the DB's UI:
 
 Create your bucket and account, and configure your agent in order to store the data from prometheus long-term.
 
-Telegraf, as well as Grafana for dashboard & real time monitoring are reccomended!
+Telegraf, as well as Grafana for dashboard & real time monitoring are recommended!
 
 
 ## Notes
