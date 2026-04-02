@@ -1,0 +1,71 @@
+version: "3.8"
+
+services:
+  orion:
+    image: fiware/orion:${ORION_VERSION:-3.3.1}
+    hostname: orion
+    container_name: $CONTAINER_NAME
+    depends_on:
+      - mongodb
+    ports:
+      - "1026:1026"
+    command: -logLevel DEBUG -noCache -dbhost mongodb -port 1026 #modified
+    healthcheck:
+     test: ["CMD", "curl", "-f", "http://0.0.0.0:1026/version"]
+     interval: 1m
+     timeout: 10s
+     retries: 5
+    environment:
+      - ORION_LOG_LEVEL=DEBUG
+      - ORION_CB_PORT=1026
+      - NGSI_V2_SUBSCRIPTIONS=True
+    networks:
+      - LoRaWAN
+
+  mongodb:
+    image: mongo:4.4
+    hostname: mongodb
+    container_name: $CONTAINER_NAME
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - LoRaWAN
+    
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: $CONTAINER_NAME
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/prometheus/prometheus.yml #modified  # Mount Prometheus config file
+    networks:
+      - LoRaWAN
+    restart: unless-stopped 
+    
+# InfluxDB for storing Prometheus data
+  influxdb:
+    image: influxdb:2
+    container_name: $CONTAINER_NAME
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=prometheus
+      - INFLUXDB_ADMIN_USER=$USERNAME
+      - INFLUXDB_ADMIN_PASSWORD=$PASSWORD
+      - INFLUXDB_BUCKET=$BUCKET_NAME  # The name of the bucket created above
+      - INFLUXDB_ORG=$ORGANIZATION_NAME  # The organization name in InfluxDB
+    volumes:
+      - ./influxdb_data:/var/lib/influxdb
+
+volumes:
+  mongo_data:
+
+networks:
+  LoRaWAN:
+    driver: bridge
+
+
