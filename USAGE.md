@@ -56,7 +56,8 @@ After running all the services as listed above, you can access the DB's UI:
 ```http://localhost:8086/```
 
 Create your bucket and account, and configure your agent in order to store the data from prometheus long-term.
-Telegraf is reccomended!
+
+Telegraf, as well as Grafana for dashboard & real time monitoring are reccomended!
 
 
 ## Notes
