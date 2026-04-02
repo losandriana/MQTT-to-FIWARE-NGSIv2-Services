@@ -2,11 +2,15 @@
 
 Start Docker Services:
 
-```docker-compose up```
+```bash
+docker-compose up
+```
 
 Check that all containers are running:
 
-```docker ps```
+```bash
+docker ps
+```
 
 Ensure the following containers are running:
 
@@ -20,7 +24,9 @@ Ensure the following containers are running:
 
 Run the MQTT connector script:
 
-```python3 mqtt_to_ngsi.py```
+```bash
+python3 mqtt_to_ngsi.py
+```
 
 Logs are saved to:
 
@@ -41,7 +47,9 @@ Logs are saved to:
 
 List all entities stored in Orion:
 
-```curl http://localhost:1026/v2/entities```
+```bash 
+curl http://localhost:1026/v2/entities
+```
 
 You can also see if the data are flowing to Orion via the Docker Desktop logs of the Orion container.
 
