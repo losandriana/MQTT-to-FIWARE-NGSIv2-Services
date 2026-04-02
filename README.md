@@ -20,7 +20,7 @@ It includes:
 
 ## Architecture
 
-MQTT Devices → MQTT Broker → Python Connector → Orion → Prometheus Exporter → Prometheus → InfluxDB
+LoRaWAN/IoT Devices → MQTT Broker → Python Connector → Orion → Prometheus Exporter → Prometheus → InfluxDB
 
 ---
 
