@@ -16,6 +16,21 @@ It includes:
 - Orion → Prometheus exporter
 - Docker Compose infrastructure
 
+The architecture implemented here is based on and analyzed in the accompanying IEEE paper:
+"Design and Implementation of Scalable and Low-Latency LoRaWAN IoT Architecture for Smart Cities".
+
+---
+
+## Citation
+
+If you use this repository, please cite:
+
+A. Christopoulou, G. T. Karetsos and F. Gioulekas, "Design and Implementation of Scalable and Low-Latency LoRaWAN IoT Architecture for Smart Cities," 2025 IEEE Symposium on Computers and Communications (ISCC), Bologna, Italy, 2025, pp. 1-6, doi: 10.1109/ISCC65549.2025.11326417.
+
+Available at: https://ieeexplore.ieee.org/abstract/document/11326417
+
+This repository implements the architecture analyzed in the above work, providing a practical reference for experimentation and validation of the proposed IoT data pipeline.
+
 ---
 
 ## Architecture
