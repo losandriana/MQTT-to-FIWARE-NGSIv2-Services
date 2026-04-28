@@ -16,9 +16,6 @@ It includes:
 - Orion → Prometheus exporter
 - Docker Compose infrastructure
 
-The architecture implemented here is based on and analyzed in the accompanying IEEE paper:
-"Design and Implementation of Scalable and Low-Latency LoRaWAN IoT Architecture for Smart Cities".
-
 ---
 
 ## Citation
